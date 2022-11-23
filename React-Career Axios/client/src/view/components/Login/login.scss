@@ -1,0 +1,30 @@
+.login-page {
+    .login-form {
+        .login-input {
+            input {
+                border: 1px solid gray;
+                margin-top: 20px;
+                height: 3vh;
+                width: 17vw;
+
+                &::placeholder {
+                    padding-left: 10px;
+                }
+            }
+        }
+
+    }
+
+
+    .login-button {
+        button {
+            cursor: pointer;
+            background: white;
+            border: transparent;
+            margin-top: 20px;
+            padding: 5px 40px;
+            border-radius: 3px;
+            font-size: 20px;
+        }
+    }
+}

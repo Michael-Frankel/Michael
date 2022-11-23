@@ -1,0 +1,24 @@
+{
+
+    "next.label": "הבא",
+    "welcome.label": "שוב שלום לך",
+    "welcomeSubTextMale.label":"מתרגשים לראותך יא גבגבר!!",
+    "welcomeSubTextFemale.label":"מתרגשים לראותך יא אישה!!",
+    "wontTakeLong.label":".זה לא ייקח הרבה זמן- בהחלט פחות מאימון אינטרוולים בעצימות גבוהה",
+    "createUser.label":"בוא ניצור עבורך חשבון משתמש",
+    "gender.label":"?מה המגדר שלך",
+    "pleaseChooseGender.label":"נא לבחור מגדר",
+    "pregnant.label":"?האם את בהריון",
+    "pleaseChooseOneAnswer.label":"נא לבחור בחירה אחת",
+    "birthdate.label":"?מה תאריך הלידה שלך",
+    "PleasePickYourBirthdate.label":"אנא בחר תאריך לידה",
+    "createAccount.label":"צור לי חשבון",
+    "firstName.label":"שם פרטי",
+    "lastName.label":"שם משפחה",
+    "traineeEmail.label":"הכנס כתובת מייל",
+    "female.label":"נקבה",
+    "male.label":"זכר",
+    "other.label":"אחר",
+    "yes.label":"כן",
+    "no.label":"לא"
+  }
