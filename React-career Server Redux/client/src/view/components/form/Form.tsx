@@ -13,18 +13,25 @@ import { loginAsync } from './loginUserApi'
 import Joi from 'joi';
 export const UserSchema = Joi.object({
     name: Joi.string().alphanum().min(3).max(30).required(),
+    lang: Joi.string().alphanum().min(3).max(30).required(),
     email: Joi.string().max(256).required(),
     password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
 })
     .with('name', 'email')
     .with('name', 'password')
     .with('password', 'email')
+    .with('name', 'lang')
+    .with('name', 'lang')
+    .with('password', 'lang')
 
 const Form = () => {
     const [login, setLogin] = useState("login")
     const [register, setRegister] = useState("register")
 
     const dispatch = useAppDispatch()
+
+    const [heb, setHeb] = useState("")
+    const [eng, setEng] = useState("")
 
 
     function handleRegister(e: any) {
@@ -37,9 +44,14 @@ const Form = () => {
             const email = e.target.email.value
             const password = e.target.password.value
             const password2 = e.target.password2.value
+            const lang = e.target.value
 
-            const payload = { name, email, password }
-            if (!payload.name || !payload.email || !payload.password) throw new Error("No payload provided for registration");
+            console.log(eng, heb, "49");
+            
+
+
+            const payload = { name, email, password, lang }
+            if (!payload.name || !payload.email || !payload.password || !payload.lang) throw new Error("No payload provided for registration");
 
             const { value, error } = UserSchema.validate(payload)
             if (error) throw error;
@@ -77,14 +89,11 @@ const Form = () => {
 
             const payload = { name, email, password }
 
-            if (!payload.name || !payload.email || !payload.password) throw new Error("No payload provided for registration");
+            if (!payload.name || !payload.email || !payload.password ) throw new Error("No payload provided for registration");
             const { value, error } = UserSchema.validate(payload)
             if (error) throw error;
 
-            console.log(payload, "dispatch");
-
             dispatch(loginAsync(payload));
-
 
         } catch (error) {
 
@@ -107,7 +116,7 @@ const Form = () => {
 
 
             <form onSubmit={(e: any) => handleRegister(e)}>
-                <Input register={register} />
+                <Input register={register} setHeb={setHeb} setEng={setEng} />
                 <Submit register={register} />
             </form>
 

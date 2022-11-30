@@ -23,6 +23,9 @@ mongoose.connect(MONGODB_URI)
 import userRouter from './routers/userRouter'
 app.use('/api/user', userRouter)
 
+import historyRouter from './routers/historyRouter'
+app.use('/api/history', historyRouter)
+
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

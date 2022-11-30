@@ -7,7 +7,7 @@ export async function register(req, res) {
 
         if (!payload) throw new Error("no user arrived in register - userCont");
 
-        const { email, password, name } = payload
+        const { email, password, name, lang } = payload
 
         const oldUser = await User.findOne({ email, password, name }).collation({
             locale: "en_US",
@@ -16,7 +16,7 @@ export async function register(req, res) {
 
         if (oldUser) throw new Error("There is an old user found");
 
-        const newUser = new User({ name, password, email });
+        const newUser = new User({ name, password, email, lang });
         const result = await newUser.save();
 
         res.send({ ok: true, result });

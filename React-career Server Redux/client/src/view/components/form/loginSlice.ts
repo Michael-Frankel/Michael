@@ -43,7 +43,12 @@ export const loginSlice = createSlice({
       })
       .addCase(loginAsync.fulfilled, (state, action) => {
         state.status = LoginStatus.Idle;
-        state.value = { ...action.payload, ok: true };
+        if (action.payload.ok) {
+          state.value = { ...action.payload.result, ok: true }
+        } else {
+          state.value = { ...action.payload, ok: false };
+        }
+
 
       })
       .addCase(loginAsync.rejected, (state) => {

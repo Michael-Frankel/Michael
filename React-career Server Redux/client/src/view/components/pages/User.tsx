@@ -24,17 +24,9 @@ const User = () => {
   const navigate = useNavigate()
 
 
-
   useEffect(() => {
 
-    console.log(loginSelector, "loginSelector");
-    // console.log(loginSelector.ok, "loginSelector");
-    if (loginSelector?.ok) {
-      console.log("22222222222222222222222");
-      navigate(`/homePage?name=${loginSelector.name}`)
-
-    }
-
+    if (loginSelector?.ok) navigate(`/homePage?name=${loginSelector.name}`)
 
   }, [loginSelector])
 
@@ -47,9 +39,13 @@ const User = () => {
         <h1>{LoginStatus.Loading}...</h1>
         : null
       }
-      {loginSelector ?
+      {loginSelector?.ok ?
         <p>Welcome {loginSelector.name}!</p>
-        : null
+        :
+        loginSelector?.ok === false ?
+          <p>No user</p>
+          :
+          null
       }
 
 
